@@ -1,0 +1,25 @@
+@import url('https://db.onlinewebfonts.com/c/685846eba2b5b1bc0a6548d693ab8123?family=Basis+Grotesque+Pro+Mono');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Playfair Display', serif;
+  --font-grotesque-mono: 'Basis Grotesque Pro Mono';
+}
+
+/* Scroll general */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a; /* slate-900 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569; /* slate-600 */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b; /* slate-500 */
+}
