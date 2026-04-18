@@ -5,6 +5,6 @@ export const userStore = create(() => ({
     firstName: 'Kevin',
     lastName: 'Benites',
     role: 'administrador',
-    avatar: 'src/assets/img/foto_kevin.jpg',
+    avatar: '/img/foto_kevin.jpg',
   },
 }));
