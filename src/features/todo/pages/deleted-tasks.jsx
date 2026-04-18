@@ -1,8 +1,8 @@
 import { TodoList } from '../components/todo-list';
-import { useTodoContext } from '../context/todo-context';
+import { useTodoStore } from '../store/todoStore';
 
 export function DeletedTasksPage() {
-  const { todos } = useTodoContext();
+  const { todos } = useTodoStore();
   const eliminatedTodos = todos.filter((todo) => todo.eliminated);
   return (
     <>

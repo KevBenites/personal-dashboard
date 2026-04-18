@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { TodoForm } from '../components/todo-form';
 import { TodoList } from '../components/todo-list';
-import { useTodoContext } from '../context/todo-context';
 import { Modal } from '../../../common/components/modal/modal';
+import { useTodoStore } from '../store/todoStore';
 
 export function TodoPage() {
-  const { todos, addTodo, toggleTodo, deleteTodo, editTodo } = useTodoContext();
+  const { todos, addTodo, completeTodo, deleteTodo, editTodo } = useTodoStore();
   const [modalOpen, setModalOpen] = useState(false);
 
   const todosShown = todos
@@ -30,7 +30,7 @@ export function TodoPage() {
         ) : (
           <TodoList
             todos={todosShown}
-            toggleTodo={toggleTodo}
+            completeTodo={completeTodo}
             editTodo={editTodo}
             onDelete={deleteTodo}
           />

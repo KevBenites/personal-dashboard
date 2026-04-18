@@ -2,7 +2,7 @@ import { TodoCard } from './todo-card';
 
 export const TodoList = ({
   todos,
-  toggleTodo,
+  completeTodo,
   onDelete,
   editTodo,
   showActions = true,
@@ -14,7 +14,7 @@ export const TodoList = ({
           key={todo.id}
           todo={todo}
           onDelete={onDelete}
-          toggleTodo={toggleTodo}
+          completeTodo={completeTodo}
           editTodo={editTodo}
           showActions={showActions}
         />

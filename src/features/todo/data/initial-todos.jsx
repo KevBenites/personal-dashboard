@@ -22,8 +22,8 @@ const firstTodos = [
   },
 ];
 
-if (!localStorage.getItem('todos')) {
-  localStorage.setItem('todos', JSON.stringify(firstTodos));
+if (!localStorage.getItem('todos-storage')) {
+  localStorage.setItem('todos-storage', JSON.stringify(firstTodos));
 }
 
-export const initialTodos = JSON.parse(localStorage.getItem('todos'));
+export const initialTodos = JSON.parse(localStorage.getItem('todos-storage'));

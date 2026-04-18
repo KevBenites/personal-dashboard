@@ -5,7 +5,7 @@ import { TodoInput } from './todo-input';
 export const TodoCard = ({
   todo,
   onDelete,
-  toggleTodo,
+  completeTodo,
   editTodo,
   showActions,
 }) => {
@@ -44,7 +44,7 @@ export const TodoCard = ({
           <div className="flex flex-col sm:flex-row gap-3 mt-2">
             <button
               className="flex-1 bg-green-600/50 hover:bg-green-700 cursor-pointer text-sm py-2 px-1 rounded-2xl transition"
-              onClick={() => toggleTodo(todo.id)}
+              onClick={() => completeTodo(todo.id)}
             >
               ✔ Completar
             </button>
