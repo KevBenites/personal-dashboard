@@ -37,20 +37,13 @@ export function TodoPage() {
         )}
       </div>
       {modalOpen && (
-        <Modal titulo="Nuevo Todo">
+        <Modal titulo="Nuevo Todo" setModalOpen={setModalOpen}>
           <TodoForm
             onAdd={(todo) => {
               addTodo(todo);
               setModalOpen(false);
             }}
           />
-
-          <button
-            onClick={() => setModalOpen(false)}
-            className="mt-4 bg-red-500/70 px-3 py-1.5 rounded-2xl cursor-pointer"
-          >
-            Cancelar
-          </button>
         </Modal>
       )}
     </>

@@ -11,7 +11,9 @@ export function TodoInput({
     <div className="flex justify-center items-center gap-2">
       {textArea ? (
         <>
-          <label htmlFor={inputName}>{inputLabel}</label>
+          <label className="font-semibold mr-1" htmlFor={inputName}>
+            {inputLabel}
+          </label>
           <textarea
             id={inputName}
             value={inputValue}
@@ -25,7 +27,9 @@ export function TodoInput({
         </>
       ) : inputSelect ? (
         <>
-          <label htmlFor={inputName}>{inputLabel}</label>
+          <label className="font-semibold mr-1" htmlFor={inputName}>
+            {inputLabel}
+          </label>
           <select
             className="border px-2 rounded-lg"
             id={inputName}
@@ -40,7 +44,9 @@ export function TodoInput({
         </>
       ) : (
         <>
-          <label htmlFor={inputName}>{inputLabel}</label>
+          <label className="font-semibold mr-1" htmlFor={inputName}>
+            {inputLabel}
+          </label>
           <input
             id={inputName}
             className="border rounded-2xl px-3 py-1"
@@ -48,7 +54,6 @@ export function TodoInput({
             value={inputValue}
             name={inputName}
             onChange={(e) => handleChange(e)}
-            // onKeyDown={(e) => handleKeyDown(e)}
             placeholder="Agrega un todo"
           />
         </>

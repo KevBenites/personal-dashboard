@@ -67,7 +67,7 @@ export const TodoCard = ({
         )}
       </li>
       {isEditing && (
-        <Modal titulo="Editando Todo">
+        <Modal titulo="Editando Todo" setModalOpen={setIsEditing}>
           <div className="mx-auto w-[80%] flex flex-col items-center">
             <div className="flex flex-col items-start gap-4 mb-5">
               <TodoInput
@@ -99,23 +99,15 @@ export const TodoCard = ({
                 inputLabel="Descripción:"
                 handleChange={handleChangeEdit}
               />
-
-              <button
-                className="bg-black text-white p-3 rounded-2xl w-3xs cursor-pointer transform hover:bg-blue-700/60 hover:text-black hover:font-bold active:translate-y-0.5 active:translate-x-0.5"
-                onClick={() => {
-                  editTodo(todo.id, formEdited);
-                  setIsEditing((prev) => !prev);
-                }}
-              >
-                Actualizar Todo
-              </button>
             </div>
-
             <button
-              onClick={() => setIsEditing((prev) => !prev)}
-              className="mt-4 bg-red-500/70 px-3 py-1.5 rounded-2xl cursor-pointer"
+              className="bg-black text-white p-3 rounded-2xl w-3xs cursor-pointer transform hover:bg-blue-700/60 hover:text-black hover:font-bold active:translate-y-0.5 active:translate-x-0.5"
+              onClick={() => {
+                editTodo(todo.id, formEdited);
+                setIsEditing((prev) => !prev);
+              }}
             >
-              Cancelar
+              Actualizar Todo
             </button>
           </div>
         </Modal>
