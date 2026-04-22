@@ -27,6 +27,15 @@ export function Sidebar() {
             <Link to="/deleted-todos">Deleted Tasks</Link>
           </nav>
         </div>
+        <div className="mt-8">
+          <h2 className="px-3 text-xs font-medium uppercase text-slate-500">
+            pokemon - module
+          </h2>
+
+          <nav className="mt-4 space-y-2 gap-8 flex lg:flex-col lg:gap-4">
+            <Link to="/pokemones?page=1&limit=60">Pokemones</Link>
+          </nav>
+        </div>
       </div>
     </aside>
   );

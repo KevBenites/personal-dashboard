@@ -6,6 +6,8 @@ import { Aboutme } from '../app/about-me/about-me';
 import { CompletedTasks } from '../app/todo/completed-tasks';
 import { DashboardLayout } from '../common/layouts/dashboard-layout';
 import { DeletedTasks } from '../app/todo/deleted-tasks';
+import { Pokemones } from '../app/pokemon/pokemones';
+import { PokemonDetails } from '../features/pokemon/components/pokemon-details';
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ export const router = createBrowserRouter([
       {
         path: 'completed-todos',
         Component: CompletedTasks,
+      },
+      {
+        path: '/pokemones',
+        Component: Pokemones,
+      },
+      {
+        path: '/pokemones/pokemon-details',
+        Component: PokemonDetails,
       },
     ],
   },
