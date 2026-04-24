@@ -1,11 +1,16 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useSearchParams } from 'react-router';
 
-export function Pagination({ totalPages }) {
+export function Pagination({ totalPokemones }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const queryPage = searchParams.get('page') || '1';
+  const limit = searchParams.get('limit') || '60';
+
   const page = isNaN(+queryPage) ? 1 : +queryPage;
+  const limitNumber = Number(limit);
+
+  const totalPages = Math.ceil(totalPokemones / limitNumber);
 
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return;

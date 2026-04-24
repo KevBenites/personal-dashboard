@@ -33,7 +33,7 @@ export function Sidebar() {
           </h2>
 
           <nav className="mt-4 space-y-2 gap-8 flex lg:flex-col lg:gap-4">
-            <Link to="/pokemones?page=1&limit=60">Pokemones</Link>
+            <Link to="/pokemones">Pokemones</Link>
           </nav>
         </div>
       </div>
