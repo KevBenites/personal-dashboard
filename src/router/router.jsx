@@ -37,9 +37,15 @@ export const router = createBrowserRouter([
       {
         path: '/pokemones',
         Component: Pokemones,
+        // children: [
+        //   {
+        //     path: '/:pokeId',
+        //     Component: PokemonDetails,
+        //   },
+        // ],
       },
       {
-        path: '/pokemones/pokemon-details',
+        path: '/pokemones/:pokeId',
         Component: PokemonDetails,
       },
     ],

@@ -7,11 +7,7 @@ export function PokemonCard({ poke }) {
   return (
     <div
       className="group cursor-pointer w-52 p-4 rounded-3xl bg-white/10 backdrop-blur-md border border-white/10 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-      onClick={() =>
-        navigate('/pokemones/pokemon-details', {
-          state: { pokemon: poke },
-        })
-      }
+      onClick={() => navigate(`/pokemones/${poke.id}`)}
     >
       <h2 className="text-lg font-bold text-center capitalize mb-2">
         {poke.name}

@@ -3,7 +3,8 @@ import { ArrowLeft } from 'lucide-react';
 import { PokemonInfo } from './pokemon-info';
 import { PokemonStatBar } from './pokemon-statbar';
 
-import { useLocation, useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
+import { useGetPokemonById } from '../hooks/use-get-pokemon-by-id';
 
 export function PokemonDetails() {
   const typeColors = {
@@ -20,8 +21,28 @@ export function PokemonDetails() {
   };
 
   const navigate = useNavigate();
-  const { state } = useLocation();
-  const poke = state.pokemon;
+
+  const { pokeId } = useParams();
+  const idNumer = +pokeId;
+  console.log({ idNumer });
+
+  const { pokemon, isLoading, error } = useGetPokemonById(idNumer);
+
+  if (isLoading) {
+    return (
+      <div className="w-full h-[70vh] flex items-center justify-center">
+        <span className="text-3xl font-bold">Cargando pokemon...</span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="w-full h-[70vh] flex items-center justify-center">
+        <span className="text-3xl font-bold">{error.message}</span>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto p-6 rounded-3xl bg-white/10 backdrop-blur-md border border-white/10 shadow-2xl">
@@ -36,16 +57,16 @@ export function PokemonDetails() {
       <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-6">
         <img
           className="w-60 h-60 object-contain drop-shadow-xl"
-          src={poke.sprites.other['official-artwork'].front_default}
-          alt={poke.name}
+          src={pokemon.sprites.other['official-artwork'].front_default}
+          alt={pokemon.name}
         />
 
         <div className="text-center md:text-left">
-          <h1 className="text-4xl font-bold capitalize">{poke.name}</h1>
-          <p className="text-white/60 mb-2"># {poke.id}</p>
+          <h1 className="text-4xl font-bold capitalize">{pokemon.name}</h1>
+          <p className="text-white/60 mb-2"># {pokemon.id}</p>
 
           <div className="flex gap-2 justify-center md:justify-start">
-            {poke.types.map((type) => (
+            {pokemon.types.map((type) => (
               <span
                 key={type.type.name}
                 className={`px-3 py-1 rounded-full text-sm capitalize ${
@@ -63,7 +84,7 @@ export function PokemonDetails() {
         <h2 className="text-xl font-semibold mb-3">Stats</h2>
 
         <div className="space-y-2">
-          {poke.stats.map((stat) => (
+          {pokemon.stats.map((stat) => (
             <PokemonStatBar
               key={stat.stat.name}
               statBarLabel={stat.stat.name}
@@ -74,11 +95,11 @@ export function PokemonDetails() {
       </div>
 
       <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
-        <PokemonInfo label="Height" value={poke.height} />
-        <PokemonInfo label="Weight" value={poke.weight} />
+        <PokemonInfo label="Height" value={pokemon.height} />
+        <PokemonInfo label="Weight" value={pokemon.weight} />
         <PokemonInfo
           label="Abilities"
-          value={poke.abilities.map((a) => a.ability.name).join(', ')}
+          value={pokemon.abilities.map((a) => a.ability.name).join(', ')}
         />
       </div>
     </div>
