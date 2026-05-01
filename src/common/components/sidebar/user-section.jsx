@@ -4,7 +4,7 @@ export function UserSection() {
   const { user } = userStore();
 
   return (
-    <div className="flex gap-5 p-4 bg-black/35 border-b-2 border-slate-700/60">
+    <div className="flex gap-5 px-4 py-2 bg-black/35 border-2 border-slate-700/60 rounded-2xl">
       <img
         className="w-21 h-24 rounded-full"
         src={user.avatar}
