@@ -13,12 +13,22 @@ export function PokemonCard({ poke }) {
         {poke.name}
       </h2>
       <div className="flex justify-center items-center mb-3">
-        <img
-          className="w-28 h-28 object-contain transition-transform duration-300 group-hover:scale-110"
-          src={poke.sprites.other['official-artwork'].front_default}
-          alt={poke.name}
-          loading="lazy"
-        />
+        {!poke.sprites.other['official-artwork'].front_default ||
+        !poke.sprites.other['official-artwork'].front_shiny ? (
+          <div className="flex justify-center items-center w-28 h-28">
+            Imagen no disponible
+          </div>
+        ) : (
+          <img
+            className="w-28 h-28 object-contain transition-transform duration-300 group-hover:scale-110"
+            src={
+              poke.sprites.other['official-artwork'].front_default ||
+              poke.sprites.other['official-artwork'].front_shiny
+            }
+            alt={poke.name}
+            loading="lazy"
+          />
+        )}
       </div>
       <div className="grid grid-cols-2 gap-2 text-xs">
         <PokemonStat statLabel="HP" statValue={poke.stats[0].base_stat} />

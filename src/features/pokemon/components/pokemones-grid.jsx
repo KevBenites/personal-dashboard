@@ -18,7 +18,7 @@ export function PokemonesGrid({ pokemones, isLoading, error }) {
   }
 
   return (
-    <div className="mx-auto w-[80%] py-2 max-h-160 flex flex-wrap gap-4 overflow-y-scroll">
+    <div className="mx-auto w-[80%] py-2 max-h-150 flex flex-wrap gap-4 overflow-y-scroll">
       {pokemones.map((pokemon) => (
         <PokemonCard key={pokemon.name} poke={pokemon} />
       ))}

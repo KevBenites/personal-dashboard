@@ -55,11 +55,21 @@ export function PokemonDetails() {
       </button>
 
       <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-6">
-        <img
-          className="w-60 h-60 object-contain drop-shadow-xl"
-          src={pokemon.sprites.other['official-artwork'].front_default}
-          alt={pokemon.name}
-        />
+        {!pokemon.sprites.other['official-artwork'].front_default ||
+        !pokemon.sprites.other['official-artwork'].front_shiny ? (
+          <div className="flex justify-center items-center w-60 h-60 border-3 border-white/40">
+            Imagen no disponible
+          </div>
+        ) : (
+          <img
+            className="w-60 h-60 object-contain drop-shadow-xl"
+            src={
+              pokemon.sprites.other['official-artwork'].front_default ||
+              pokemon.sprites.other['official-artwork'].front_shiny
+            }
+            alt={pokemon.name}
+          />
+        )}
 
         <div className="text-center md:text-left">
           <h1 className="text-4xl font-bold capitalize">{pokemon.name}</h1>
